@@ -1,13 +1,13 @@
 //set myName variable to your name;
 function myName(name) {
-  let myName = name;
-
+  let myName = "Brian";
+  myName = name;
   return myName;
 }
 
 function setTeachersNames(teachersName) {
   // change code below this line so that we can set the variable.
-  const teachers = null;
+  let teachers = null;
   teachers = teachersName; //  <- this is  invalid because teachers is a const. How can we fix this?
 
   return teachers;
@@ -15,24 +15,26 @@ function setTeachersNames(teachersName) {
 
 /*** return the sum of both arguments  ***/
 function add(a, b) {
-  let sum;
+  let sum = a + b;
 
   return sum;
 }
 
 /*** Using the increment operator, add a year to the argument and make me older */
 function ageMeByAYear(age) {
+  age++;
   return age;
 }
 
 /*** Using the decrement operator make me age decrement by a year  ***/
 function makeMeYoungerByAYear(age) {
+  age--;
   return age;
 }
 
 /** Take the argument that will be a string and return an integer  */
 function convertStringToInt(str) {
-  let int;
+  let int = parseInt(str);
   return int;
 }
 
@@ -46,14 +48,14 @@ function convertStringToInt(str) {
  *
  */
 function getTheCharacterPosition(name, letter) {
-  let characterPosition;
+  let characterPosition = name.indexOf(letter);
   return characterPosition;
 }
 
 /** Take the argument and return the length of the argument */
 
 function stringLength(str) {
-  let strLength;
+  let strLength = str.length;
 
   return strLength;
 }
@@ -66,10 +68,10 @@ function stringLength(str) {
  */
 
 function getLastCharacter(str) {
-  let lastCharacter;
+  let lastCharacter = str[str.length - 1];
 
   return lastCharacter;
-}
+} // STOP HERE
 
 /** Return the last part of a place name
  *
