@@ -69,7 +69,7 @@ function stringLength(str) {
 
 function getLastCharacter(str) {
   let lastCharacter = str[str.length - 1];
-
+  
   return lastCharacter;
 } // STOP HERE
 
