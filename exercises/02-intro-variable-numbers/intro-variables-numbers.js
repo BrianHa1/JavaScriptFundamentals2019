@@ -71,7 +71,7 @@ function getLastCharacter(str) {
   let lastCharacter = str[str.length - 1];
   
   return lastCharacter;
-} // STOP HERE
+}
 
 /** Return the last part of a place name
  *
@@ -86,7 +86,7 @@ function getLastCharacter(str) {
  */
 
 function getLastWordInPlaceName(place) {
-  let newPlace;
+  let newPlace = place.substring(place.indexOf(" ") + 1);
 
   return newPlace;
 }
@@ -97,7 +97,13 @@ function getLastWordInPlaceName(place) {
  */
 
 function getLargerNumber(arg1, arg2) {
-  let largestNumber;
+  let largestNumber = arg1;
+  if (arg1 > arg2){
+    largestNumber = arg1;
+  }
+  else{
+    largestNumber = arg2;
+  }
 
   return largestNumber;
 }
@@ -115,7 +121,7 @@ function getLargerNumber(arg1, arg2) {
  */
 
 function replaceLastName(fullName, newLastName) {
-  let newFullName;
+  let newFullName = fullName.replace(fullName.substring(fullName.indexOf(" ") + 1), newLastName);
   return newFullName;
 }
 
@@ -125,7 +131,9 @@ function replaceLastName(fullName, newLastName) {
  */
 
 function capitalizeLastName(fullName) {
-  let capitalizeLastName;
+  let firstName = fullName.substring(0, fullName.indexOf(' '));
+  let lastName = fullName.substring(fullName.indexOf(' ') + 1);
+  let capitalizeLastName = firstName + " " + lastName.charAt(0).toUpperCase() + lastName.slice(1);
 
   return capitalizeLastName;
 }
@@ -136,11 +144,11 @@ function capitalizeLastName(fullName) {
  *
  */
 function compareEquality(a, b) {
-  if (a == b) {
+  if (a === b) {
     // Change this line
     return "Equal";
   }
-  return "Not Equal";
+    return "Not Equal";
 }
 
 /** The function should use the strict inequality operator
@@ -157,7 +165,7 @@ function compareEquality(a, b) {
 
 function testStrictNotEqual(a, b) {
   // Only Change Code Below this Line
-  if (undefined) {
+  if (a !== b) {
     // Only Change Code Above this Line
 
     return "Not Equal";
@@ -179,6 +187,12 @@ function testStrictNotEqual(a, b) {
 
 function testLogicalAnd(num) {
   // code here
+  if (num >= 6 && num <= 9){
+    return "Yes";
+  }
+  else{
+    return "No";
+  }
 }
 
 /**
@@ -192,13 +206,25 @@ function testLogicalAnd(num) {
 
 function testLogicalOr(num) {
   // code here
+  if (num == 20 || num == 25){
+    return "Yes";
+  }
+  else{
+    return "No";
+  }
 }
 
 /** Using the modulus operator determine if the argument is an even or odd number */
 
 function isEvenOrOdd(isEven) {
+  if (isEven % 2 === 0){
+    isEven = true;
+  }
+  else{
+    isEven = false;
+  }
   return isEven;
-}
+} // STOP HERE
 
 /****
  *  You are given a variable num:
