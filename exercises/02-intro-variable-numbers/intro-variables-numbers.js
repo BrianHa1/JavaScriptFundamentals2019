@@ -224,7 +224,7 @@ function isEvenOrOdd(isEven) {
     isEven = false;
   }
   return isEven;
-} // STOP HERE
+}
 
 /****
  *  You are given a variable num:
@@ -243,7 +243,42 @@ function isEvenOrOdd(isEven) {
  * 
  *  *****/
 
-function caseInSwitch(num) {}
+function caseInSwitch(num) {
+  let numasword = "";
+  switch(num) {
+    case 1:
+      numasword = "ONE";
+      break;
+    case 2:
+      numasword = "TWO";
+      break;
+    case 3:
+      numasword = "THREE";
+      break;
+    case 4:
+      numasword = "FOUR";
+      break;
+    case 5:
+      numasword = "FIVE";
+      break;
+    case 6:
+      numasword = "SIX";
+      break;
+    case 7:
+      numasword = "SEVEN";
+      break;
+    case 8:
+      numasword = "EIGHT";
+      break;
+    case 9:
+      numasword = "NINE";
+      break;
+    default:
+      numasword = "PLEASE TRY AGAIN";
+      break;
+  }
+  return numasword;
+}
 
 /***
  *  Create a function named timesFive
