@@ -291,7 +291,9 @@ function caseInSwitch(num) {
  *   timesFive() should return 5
  *
  */
-
+function timesFive(num){
+  return num * 5;
+}
 /***
  *  create a function called lowerCaseName that will return the string lowerCased
  *   create two if statements. The first if statement will check for null or undefined and exit out of
@@ -303,7 +305,14 @@ function caseInSwitch(num) {
  *
  *
  */
-function lowerCaseName(str) {}
+function lowerCaseName(str) {
+  if (str === undefined || str === null){
+    return;
+  }
+  else{
+    return str.toLowerCase();
+  }
+}
 
 let myExports = {
   myName,
