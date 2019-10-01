@@ -6,6 +6,9 @@
 function createAnArray() {
   let array = ["JavaScript"]; // Do not change this line
   /* Add three more items to the array here */
+  array.push("Python");
+  array.push("C");
+  array.push("Java");
   return array;
 }
 
@@ -18,6 +21,7 @@ function createAnArray() {
 function accessingAnArray() {
   const cars = ["BMW", "Honda", "Civic"]; // Do not change this line
   // Code here
+  return cars[0];
 }
 
 /***
@@ -33,6 +37,13 @@ function accessingAnArray() {
 
 function addFunctionsIntoArray() {
   // Create and return an array here
+  let a = [function addArguments(x, y){
+    return x + y;
+  }, 
+    function subtractArguments(x, y){
+      return x - y;
+    }];
+  return a;
 }
 
 /**
@@ -44,7 +55,15 @@ function addFunctionsIntoArray() {
  * highestNumber([-1, -5, -4]) // -1
  *
  **/
-function highestNumber(array) {}
+function highestNumber(array) {
+  let highest = array[0];
+  for (let i = 1; i < array.length; i++){
+    if (highest < array[i]){
+      highest = array[i];
+    }
+  }
+  return highest;
+}
 
 /**
  * Combine an array by using the spread operator
@@ -55,7 +74,9 @@ function highestNumber(array) {}
  * combineArray(['Japan','China','India'], ['USA','UK']) // ['Japan','China','India','USA','UK']
  **/
 
-function combineArray(array1, array2) {}
+function combineArray(array1, array2) {
+  return [...array1, ...array2];
+}
 
 /**
  * Given an array of objects, where each object has an ID,
@@ -93,7 +114,7 @@ function combineArray(array1, array2) {}
  * // Please note, the loop never iterates over the last item, because we found our object. There is no need to continue looping.
  */
 
-function findAndAbort(arr, id) {}
+function findAndAbort(arr, id) {} // SKIP
 
 /**
  * A palindrome is a word, phrase, or sequence that reads the same backward as forward, e.g., madam or racecar.
@@ -104,7 +125,14 @@ function findAndAbort(arr, id) {}
  *
  */
 
-function isPalindrome(str) {}
+function isPalindrome(str) {
+  if (str == str.split("").reverse().join("")){
+    return true;
+  }
+  else{
+    return false;
+  }
+} // STOP HERE
 
 /***
  * Use sets to remove duplicate elements from an array
