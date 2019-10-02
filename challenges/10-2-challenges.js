@@ -12,7 +12,15 @@
  *
  *  */
 
-function createAnArray() {}
+function createAnArray() {
+  let array = ["Hello World!",
+  function f1(x, y, z){
+    return x + y * z;
+  },
+  [52, 26, 18]];
+  
+  return array;
+}
 
 /***
  *   The function will accept two arguments: the string and the target.
@@ -32,7 +40,19 @@ function createAnArray() {}
  *
  *  */
 
-function uppercaseTargetWord(str, target) {}
+function uppercaseTargetWord(str, target) {
+  let outstr = str.split(" ");
+  if (target > outstr.length){
+    return undefined;
+  }
+  for (let i = 0; i < outstr.length; i++){
+    if (i === target - 1){
+      outstr[i] = outstr[i].toUpperCase();
+    }
+  }
+  outstr = outstr.join(" ");
+  return outstr;
+}
 
 module.exports = {
   createAnArray,
