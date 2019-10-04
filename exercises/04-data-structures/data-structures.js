@@ -114,7 +114,20 @@ function combineArray(array1, array2) {
  * // Please note, the loop never iterates over the last item, because we found our object. There is no need to continue looping.
  */
 
-function findAndAbort(arr, id) {} // SKIP
+function findAndAbort(arr, id) {
+  let foundobject = {};
+  for (let i = 0; i < arr.length; i++){
+    if (arr[i].id == id){
+      foundobject = {
+        id: arr[i].id,
+        firstName: arr[i].firstName,
+        lastName: arr[i].lastName
+      };
+      break;
+    }
+  }
+  return foundobject;
+}
 
 /**
  * A palindrome is a word, phrase, or sequence that reads the same backward as forward, e.g., madam or racecar.
@@ -132,7 +145,7 @@ function isPalindrome(str) {
   else{
     return false;
   }
-} // STOP HERE
+}
 
 /***
  * Use sets to remove duplicate elements from an array
@@ -143,7 +156,7 @@ function removeDuplicates() {
   let numbers = [2, 3, 4, 4, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 5, 32, 3, 4, 5]; // You can change this line
 
   /** Return the an array of unique values */
-  return;
+  return [...new Set(numbers)];
 }
 
 /**
@@ -158,7 +171,7 @@ function accessObject() {
     shoes: "cleats"
   };
   // Only change code below this line
-  return;
+  return clothes.hat;
 }
 
 /**
@@ -175,6 +188,11 @@ function createStudentObject() {
     skills: []
   };
   // Add code here
+  student.firstName = "Brian";
+  student.lastName = "Ha";
+  student.skills[0] = "Javascript";
+  student.skills[1] = "Java";
+  student.skills[2] = "C";
   return student;
 }
 
@@ -185,7 +203,15 @@ function createStudentObject() {
  * @return {object}
  */
 
-function createDogObject() {}
+function createDogObject() {
+  let dog = {
+    name: "Spike",
+    legs: 4,
+    tails: 1,
+    owners: ["Olivia", "Benny", "Sadie", "Benita"]
+  };
+  return dog;
+} // STOP HERE
 
 /**
  *  Using Object.keys, return all the properties contained in the object.
