@@ -211,7 +211,7 @@ function createDogObject() {
     owners: ["Olivia", "Benny", "Sadie", "Benita"]
   };
   return dog;
-} // STOP HERE
+}
 
 /**
  *  Using Object.keys, return all the properties contained in the object.
@@ -230,6 +230,7 @@ function returnObjectProperties() {
   };
   // Add code here
   // hint you need to return an array
+  return Object.keys(dog);
 }
 
 /**
@@ -239,7 +240,9 @@ function returnObjectProperties() {
  * @return {object} obj1 and obj2 combined
  */
 
-function combineObject(obj1, obj2) {}
+function combineObject(obj1, obj2) {
+  return {...obj1, ...obj2};
+}
 
 /**
  * Find a record with the matching id in a collection of records.
@@ -289,6 +292,21 @@ function updateRecords(id, prop, value) {
   };
   // Only change the code after this line
   // Logic Here
+  if (prop === "tracks" && value){
+    if (collection[id][prop]){
+      collection[id][prop].push(value);
+    }
+    else{
+      collection[id][prop] = [value];
+    }
+  }
+  else if (prop !== "tracks" && value){
+    collection[id][prop] = value;
+  }
+  else{
+    delete collection[id][prop];
+  }
+  return collection;
 }
 
 module.exports = {
