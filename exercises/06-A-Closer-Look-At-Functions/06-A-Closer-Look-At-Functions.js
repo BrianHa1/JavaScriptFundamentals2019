@@ -117,30 +117,24 @@ const calculator = () => {
  * guessRound2(1); // "No more guesses. The answer was 0"
  */
 
-function guessingGame(amount){
+const guessingGame = numberOfRounds => {
   let answer = Math.floor(Math.random() * 10);
   let guesses = 0;
-  let gameOver = false;
-  return function guessTheNumber(guess){
-    if (!gameOver){
-      guesses++;
-      let chancesLeft = amount - guesses;
-      if ((guess < answer) && (chancesLeft != 0)){
-        return "You're too low!";
-      }
-      else if ((guess > answer) && (chancesLeft != 0)){
-        return "You're too high!";
-      }
-      /*else if (guess == answer){
-        gameOver = true;
-        return "You got it!";
-      }*/
-      else if ((guesses === answer) && (chancesLeft === 0)){
-        gameOver = true;
-        return "No more guesses. The answer was " + answer;
-      }
+  return guess => {
+    guesses++;
+    if (guesses > numberOfRounds){
+      return "No more guesses. The answer was " + answer;
     }
-  }
+    else if (guess === answer){
+      return "You got it!";
+    }
+    else if (guess > answer){
+      return "You're too high!";
+    }
+    else if (guess < answer){
+      return "You're too low!";
+    }
+  };
 };
 
 /** CLOSURES END */
