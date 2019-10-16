@@ -182,7 +182,9 @@ const multiplier = (a, b) => {
  *  - Eddy
  * @param {string} name instuctor name
  */
-const printer = () => {};
+const printer = (name) => {
+  return console.log(`* ${name}\n`);
+};
 
 /**
  * Loops through the array of strings
@@ -190,7 +192,11 @@ const printer = () => {};
  * @param {array}
  * @param {function} callback printer function
  */
-const printNames = () => {};
+const printNames = (array, callback) => {
+  for (let i = 0; i < array.length; i++){
+    callback(array[i]);
+  }
+};
 
 /*** callback ends */
 
