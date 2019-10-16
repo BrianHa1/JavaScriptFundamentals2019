@@ -7,7 +7,12 @@
  *
  */
 
-function objectMaker() {}
+function objectMaker() {
+  let object = {
+    name: "Brian"
+  };
+  return object;
+}
 
 /**
  *  As a programmer, I would like to be able to call on a function that returns an object that will allow me to
@@ -37,8 +42,18 @@ function objectMaker() {}
 
 function groceryList() {
   let groceryItems = [];
-
-  return {};
+  
+  return {
+    getList:() => {
+      return groceryItems;
+    },
+    add:(item) => {
+      groceryItems.push(item);
+    },
+    remove:(itemToRemove) => {
+      groceryItems.splice(itemToRemove, itemToRemove)
+    }
+  };
 }
 
 /**
@@ -55,6 +70,7 @@ const calculator = () => {
    * Create a private variable called "sum"
    * @var {number}
    */
+  let sum = 0;
   /**
    * Return an object that has two methods:
    *
@@ -66,6 +82,14 @@ const calculator = () => {
    * that should return the value of "sum" above.
    * @returns {number} the value of sum
    */
+  return {
+    setter:(num) => {
+      sum += num;
+    },
+    getter:() => {
+      return sum;
+    }
+  };
 };
 
 /**
@@ -93,7 +117,31 @@ const calculator = () => {
  * guessRound2(1); // "No more guesses. The answer was 0"
  */
 
-const guessingGame = numberOfRounds => {};
+function guessingGame(amount){
+  let answer = Math.floor(Math.random() * 10);
+  let guesses = 0;
+  let gameOver = false;
+  return function guessTheNumber(guess){
+    if (!gameOver){
+      guesses++;
+      let chancesLeft = amount - guesses;
+      if ((guess < answer) && (chancesLeft != 0)){
+        return "You're too low!";
+      }
+      else if ((guess > answer) && (chancesLeft != 0)){
+        return "You're too high!";
+      }
+      /*else if (guess == answer){
+        gameOver = true;
+        return "You got it!";
+      }*/
+      else if ((guesses === answer) && (chancesLeft === 0)){
+        gameOver = true;
+        return "No more guesses. The answer was " + answer;
+      }
+    }
+  }
+};
 
 /** CLOSURES END */
 
@@ -116,7 +164,14 @@ const guessingGame = numberOfRounds => {};
  * @param {number} a
  * @param {number} b
  */
-const multiplier = (a, b) => {};
+const multiplier = (a, b) => {
+  if (b === undefined){
+    return (b) => a * b;
+  }
+  else{
+    return a * b;
+  }
+};
 
 /** Currying End */
 
