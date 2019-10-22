@@ -256,12 +256,9 @@ const map = (arr, callback) => {
  * @returns {array} new array, with each value doubled e.g. [2, 5, 10]
  */
 const doubleValues = arr => {
-  let newArr = [];
-  for (let i = 0; i < arr.length; i++){
-    arr[i] *= 2;
-    newArr.push(arr[i]);
-  }
-  return newArr;
+  return arr.map((number) => {
+    return number * 2;
+  });
 };
 
 /**
@@ -283,11 +280,9 @@ const doubleValues = arr => {
  * extractKey(arrayOfNames, 'name'); // ['Ellie', 'Tim', 'Matt', 'Colt']
  */
 const extractKey = (arr, key) => {
-  let newArr = [];
-  for (let i = 0; i < arr.length; i++){
-    newArr.push(arr[i][key]);
-  }
-  return newArr;
+  return arr.map((key) => {
+    return key.name;
+  });
 };
 
 /**
