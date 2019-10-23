@@ -293,7 +293,12 @@ const extractKey = (arr, key) => {
  * @returns {mixed} a array of values with the values with some of the values removed
  */
 const filter = (arr, callback) => {
-  let newArr = arr.filter(callback);
+  let newArr = [];
+  for (let i = 0; i < arr.length; i++){
+    if (callback(arr[i], i, arr)){
+      newArr.push(arr[i]);
+    }
+  }
   return newArr;
 };
 
@@ -313,12 +318,13 @@ const filter = (arr, callback) => {
  *  username: "newyorkfarmer",
  *  email: "johndoe@example.com"
  * }]
- * findUser(users, 1025);
+ * deleteUser(users, 1025);
  * // [{ id: 1024, username:"smile134", email: "smile134@example.com" }]
  */
 const deleteUser = (arr, id) => {
-  arr.splice(arr.findIndex(val => val.id === id), 1);
-  return arr;
+  let newArr = arr.filter(((value, index, array) => 
+    (value.id !== id)));
+  return newArr;
 };
 
 /**
