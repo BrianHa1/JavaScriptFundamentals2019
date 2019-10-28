@@ -334,7 +334,15 @@ const deleteUser = (arr, id) => {
  * @param {function} callback
  * @returns {mixed} a single value in the array
  */
-const find = (arr, callback) => {};
+const find = (arr, callback) => {
+  let value = "";
+  for (let i = 0; i < arr.length; i++){
+    if (callback(arr[i], i, arr)){
+      value = arr[i];
+    }
+  }
+  return value;
+};
 
 /**
  * Find and return the matching user in an array of user objects
@@ -355,7 +363,9 @@ const find = (arr, callback) => {};
  * findUser(users, 1025);
  * // { id: 1025, username:"newyorkfarmer", email: "johndoe@example.com" }
  */
-const findUser = (arr, id) => {};
+const findUser = (arr, id) => {
+  return arr.find(e => e.id === id);
+};
 
 /**
  * Given an array of numbers, return the sum
@@ -365,7 +375,12 @@ const findUser = (arr, id) => {};
  *  addItems([1,5,6]) // 12
  *  addItems([1,-2,-3]) // -4
  */
-const addItems = arr => {};
+const addItems = arr => {
+  let sum = arr.reduce((acc, val) => {
+    return acc + val;
+  });
+  return sum;
+};
 
 /**
  * Create a function that flattens an array (that is, it should "unnest" a nested array).
