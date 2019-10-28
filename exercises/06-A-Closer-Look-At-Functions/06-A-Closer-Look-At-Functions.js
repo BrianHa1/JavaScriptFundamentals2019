@@ -387,7 +387,9 @@ const addItems = arr => {
  * @param {array} array e.g. `[[1, 3], [5, 10]]`
  * @returns {array} new, flattened array e.g. `[1, 3, 5, 10]`
  */
-const flattenArray = array => {};
+const flattenArray = array => {
+  return array.reduce((acc, val) => acc.concat(val), []);
+};
 
 /**
  * Create a function that tallies the number of each kind of "thing" within the array
@@ -397,7 +399,18 @@ const flattenArray = array => {};
  *   let fruits = ['Apple', 'Orange', 'Apple', 'Blueberry', 'Grape', 'Grape'];
  *   generateTally(generateTally); // {Apple: 2, Orange: 1, Blueberry: 1, Grape: 2}
  */
-const generateTally = array => {};
+const generateTally = array => {
+  let count = array.reduce((array, val) => {
+    if (!array[val]){
+      array[val] = 1;
+    }
+    else{
+      array[val] = array[val] + 1;
+    }
+    return array;
+  }, {});
+  return count;
+};
 
 /**
  * Create a function, that when given an array of object literals, will index the object literals by a single column
@@ -421,7 +434,13 @@ const generateTally = array => {};
  *   456: {id, 456, name: 'Rachel', age: 35}
  * }
  */
-const arrayToObject = arr => {};
+const arrayToObject = arr => {
+  let newObject = arr.reduce((object, item) => {
+    object[item.id] = item;
+    return object;
+  }, {});
+  return newObject;
+};
 
 module.exports = {
   objectMaker,
