@@ -19,3 +19,29 @@
 *  1) An error class named .error you can use this class to apply the proper css to an invalid element.
 *  2) You can edit this form however you see fit as the engineer to achieve your goals. (i.e add ids or additional classes if needed)
 */
+function formValidation(){
+    if (document.form.customerName.value === ""){
+        document.form.customerName.focus();
+        return false;
+    }
+
+    if (document.form.birthday.value === ""){
+        document.form.birthday.focus();
+        return false;
+    }
+
+    if (document.form.gender.value === -1){
+        return false;
+    }
+
+    if (document.form.class.value === -1){
+        return false;
+    }
+
+    if (document.form.res_code.value === ""){
+        document.form.res_code.focus();
+        return false;
+    }
+
+    return true;
+}
