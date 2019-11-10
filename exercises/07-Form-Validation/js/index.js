@@ -19,29 +19,44 @@
 *  1) An error class named .error you can use this class to apply the proper css to an invalid element.
 *  2) You can edit this form however you see fit as the engineer to achieve your goals. (i.e add ids or additional classes if needed)
 */
-function formValidation(){
-    if (document.form.customerName.value === ""){
+
+const randomForm = document.querySelector("#randomForm");
+const nameField = document.querySelector("#name");
+const birthday = document.querySelector("#birthday");
+const res_code = document.querySelector("#registration");
+
+function formValidation(form){
+    if (form && form[0].value === ""){
         document.form.customerName.focus();
-        return false;
+        nameField.classList.add("error");
     }
 
-    if (document.form.birthday.value === ""){
+    if (form && form[1].value === ""){
         document.form.birthday.focus();
-        return false;
+        birthday.classList.add("error");
     }
 
-    if (document.form.gender.value === -1){
-        return false;
+    if (form && form[2].value === -1){
+        document.form.gender.focus();
     }
 
-    if (document.form.class.value === -1){
-        return false;
+    if (form && form[3].value === -1){
+        document.form.guestcount.focus();
     }
 
-    if (document.form.res_code.value === ""){
+    if (form && form[4].value === ""){
         document.form.res_code.focus();
-        return false;
+        res_code.classList.add("error");
     }
 
     return true;
 }
+
+randomForm.addEventListener("submit", event => {
+  event.preventDefault(); // Stops the page from refreshing
+  // Logs a message and all of the elements in the form
+  console.log(event.target.elements[0].value);
+  console.log(event.target.elements[1].value);
+  console.log(event.target.elements[4].value);
+  formValidation(event.target.elements);
+});
