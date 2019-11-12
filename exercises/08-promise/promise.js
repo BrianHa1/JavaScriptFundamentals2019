@@ -52,7 +52,6 @@ const getBooksApi = () => {
           }]
          });
     }, 50);
-    reject();
   });
 };
 
@@ -76,7 +75,9 @@ let data; // Do not change this line.
  * Call on the "getBooksApi()" here and set the variable "data" above
  * to the array of graphic novels that is in your promise's response.
  */
-getBooksApi().then(data => (data = data.data));
+getBooksApi().then(everything => {
+  data = everything.data;
+}).catch(err => console.log(err));
 
 module.exports = {
   getBooksApi,
