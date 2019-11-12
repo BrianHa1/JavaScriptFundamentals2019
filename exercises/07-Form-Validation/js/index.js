@@ -54,9 +54,9 @@ function formValidation(form){
 
 randomForm.addEventListener("submit", event => {
   event.preventDefault(); // Stops the page from refreshing
-  // Logs a message and all of the elements in the form
-  console.log(event.target.elements[0].value);
-  console.log(event.target.elements[1].value);
-  console.log(event.target.elements[4].value);
-  formValidation(event.target.elements);
+  // screen clears and the message "Form submitted" is displayed
+  if (formValidation(event.target.elements) == true){
+      let message = "Form submitted";
+      document.write(message.bold().fontcolor("blue").fontsize(7));
+  }
 });
