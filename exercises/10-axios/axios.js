@@ -15,3 +15,39 @@
  *
  * Use the AXIOS library to make AJAX requests.
  */
+const selection = document.querySelector("#dropdown");
+
+const getAxiosRequest = (url, callback) => {
+    axios({
+        method: "GET",
+        url: url
+    }).then(response => callback(response));
+};
+
+const populateDropdown = (response) => {
+    const data = response.data.results;
+    data.forEach(char => {
+        // <option name="char.id">char.name</option>
+        const name = document.createElement("option");
+        name.value = char.id;
+        name.textContent = char.name;
+        selection.add(name, null);
+    });
+};
+
+const loadCharacter = (response) => {
+    const char = response.data;
+    const img = document.querySelector("get-schwifty");
+    const name = document.querySelector("#title-head");
+    const origin = document.querySelector("#photo-caption");
+    img.src = char.image;
+    name.textContent = char.name;
+    origin.textContent = char.origin.name;
+};
+
+getAxiosRequest("https://rickandmortyapi.com/api/character", populateDropdown);
+
+selection.addEventListener("change", e => {
+    const id = e.target.value;
+    getAxiosRequest(`https://rickandmortyapi.com/api/character/${id}`, loadCharacter);
+});

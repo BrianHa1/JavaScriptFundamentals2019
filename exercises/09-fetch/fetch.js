@@ -15,4 +15,13 @@
  * Please use Fetch in this Example
  *
  */
-
+const button = document.querySelector("button");
+button.addEventListener("click", () => {
+   fetch("https://dog.ceo/api/breeds/image/random")
+      .then(response => response.json())
+      .then(response => {
+         const image = document.querySelector("#image");
+         image.src = response.message;
+      })
+      .catch(err => console.err(err));
+});
