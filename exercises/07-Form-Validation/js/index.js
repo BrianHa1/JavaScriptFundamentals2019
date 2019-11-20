@@ -20,43 +20,37 @@
 *  2) You can edit this form however you see fit as the engineer to achieve your goals. (i.e add ids or additional classes if needed)
 */
 
-const randomForm = document.querySelector("#randomForm");
-const nameField = document.querySelector("#name");
-const birthday = document.querySelector("#birthday");
-const res_code = document.querySelector("#registration");
+const form = document.querySelector("#form");
 
-function formValidation(form){
-    if (form && form[0].value === ""){
-        document.form.customerName.focus();
-        nameField.classList.add("error");
-    }
-
-    if (form && form[1].value === ""){
-        document.form.birthday.focus();
-        birthday.classList.add("error");
-    }
-
-    if (form && form[2].value === -1){
-        document.form.gender.focus();
-    }
-
-    if (form && form[3].value === -1){
-        document.form.guestcount.focus();
-    }
-
-    if (form && form[4].value === ""){
-        document.form.res_code.focus();
-        res_code.classList.add("error");
-    }
-
-    return true;
-}
-
-randomForm.addEventListener("submit", event => {
+form.addEventListener("submit", event => {
   event.preventDefault(); // Stops the page from refreshing
-  // screen clears and the message "Form submitted" is displayed
-  if (formValidation(event.target.elements) == true){
-      let message = "Form submitted";
-      document.write(message.bold().fontcolor("blue").fontsize(7));
+  let elements = [...event.target.elements].filter(element => element.matches("input, select"));
+
+  let isValid = true;
+  elements.forEach(element => {
+    if (element.value){
+        element.classList.remove("error");
+    }
+    else{
+        isValid = false;
+        element.classList.add("error");
+    }
+  });
+
+  if (!isValid){
+    return;
   }
+
+  form.style.display = "none";
+
+  // screen clears and information user inputted is displayed
+  let box = document.querySelector("#box");
+  elements.forEach(element => {
+    /**
+     * <p>GENDER: Male</p>
+     */
+    let paragraph = document.createElement("p");
+    paragraph.textContent = `${element.getAttribute("placeholder")}: ${element.value}`;
+    box.appendChild(paragraph);
+  });
 });

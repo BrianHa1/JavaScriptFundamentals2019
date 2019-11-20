@@ -24,9 +24,8 @@
             <h2 class="title">Sign Up For NYC Tour</h2>
             <form
               method="POST"
-              onsubmit="return formValidation(this)"
               name="form"
-              id="randomForm"
+              id="form"
             >
               <div class="input-group">
                 <input
@@ -55,7 +54,7 @@
                 <div class="col-2">
                   <div class="input-group">
                     <div class="rs-select2 js-select-simple select--no-search">
-                      <select name="gender" id="gender">
+                      <select name="gender" id="gender" placeholder="GENDER">
                         <option disabled="disabled" selected="selected"
                           >GENDER</option
                         >
@@ -70,7 +69,7 @@
               </div>
               <div class="input-group">
                 <div class="rs-select2 js-select-simple select--no-search">
-                  <select name="class" id="guestcount">
+                  <select name="class" id="guestcount" placeholder="HOW MANY GUESTS">
                     <option disabled="disabled" selected="selected"
                       >How many Guest</option
                     >
