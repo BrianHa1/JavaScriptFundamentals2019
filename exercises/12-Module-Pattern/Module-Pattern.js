@@ -22,7 +22,7 @@ const { studentGrades } = require("../12-Module-Pattern/students");
 
 const TeacherGradeBook = (() => {
   const studentAverage = () => {
-    studentGrades.grades.reduce((a, b) => a + b, 0) / studentGrades.grades.length;
+    Math.round(studentGrades.grades.reduce((a, b) => a + b, 0) / studentGrades.grades.length);
   };
   return {};
 })();
