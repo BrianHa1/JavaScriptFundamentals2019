@@ -24,7 +24,11 @@ const TeacherGradeBook = (() => {
   const studentAverage = () => {
     Math.round(studentGrades.grades.reduce((a, b) => a + b, 0) / studentGrades.grades.length);
   };
-  return {};
+  return {
+    firstName,
+    lastName,
+    studentAverage
+  };
 })();
 
 module.exports = {
